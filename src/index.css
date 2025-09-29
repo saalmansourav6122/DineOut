@@ -35,3 +35,22 @@
 .font-inter {
   font-family: var(--font-inter);
 }
+
+/* plugin বা custom utilities */
+/* Custom scrollbar utility */
+@utility scrollbar-thin {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(89, 86, 86, 0.2);
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 96, 44, 0.5);
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 96, 44, 0.8);
+  }
+}
