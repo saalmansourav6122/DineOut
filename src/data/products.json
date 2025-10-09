@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "name": "Leomonade",
+    "price": 150,
+    "slug": "leomonade"
+  },
+  {
+    "id": "2",
+    "name": "Chocolate Brownie",
+    "price": 150,
+    "slug": "brownie"
+  },
+  {
+    "id": "3",
+    "name": "Vanilla Shake",
+    "price": 180,
+    "slug": "shake"
+  }
+]
