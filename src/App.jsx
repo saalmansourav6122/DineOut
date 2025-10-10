@@ -9,7 +9,7 @@ function App() {
         {/*---Navbar---*/}
         <Header />
         {/* Main Content */}
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 flex-grow">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 flex-grow">
           {/* left side component (Create Order Section ) */}
           <LeftComponent products={products} />
           {/* left side component (Create Order Section ) end*/}

@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { icons } from "../data/icons";
+import AddSvg from "../svg/AddSvg";
+import RemoveSvg from "../svg/RemoveSvg";
 function LeftComponent({ products }) {
+  const [toggle, setToggle] = useState({});
+  const handleClickToggle = (id) => {
+    setToggle((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
   return (
     <>
       <div className="bg-cardbg rounded-lg p-6 h-[calc(100vh_-_130px)]">
@@ -25,7 +34,10 @@ function LeftComponent({ products }) {
           <div className="max-h-[250px] overflow-y-auto scrollbar-thin">
             {/* Item  */}
             {products.map((product, id) => (
-              <div className="bg-gray-700 bg-opacity-30 rounded-md p-3 mb-3 flex justify-between items-center hover:bg-opacity-40 transition-all duration-300 ">
+              <div
+                key={id}
+                className="bg-gray-700 bg-opacity-30 rounded-md p-3 mb-3 flex justify-between items-center hover:bg-opacity-40 transition-all duration-300 "
+              >
                 <div className="flex items-center">
                   <div className="w-12 h-12   flex items-center justify-center mr-3">
                     {icons[product.slug] || icons["leomonade"]}
@@ -35,19 +47,11 @@ function LeftComponent({ products }) {
                     <p className="text-xs text-gray-400">{product.price}</p>
                   </div>
                 </div>
-                <button className="w-8 h-8 bg-gray-800 hover:bg-primary rounded-full flex items-center justify-center transition-colors duration-300">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-green-500"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                <button
+                  onClick={() => handleClickToggle(product.id)}
+                  className="w-8 h-8 cursor-pointer bg-gray-800 hover:bg-primary rounded-full flex items-center justify-center transition-colors duration-300"
+                >
+                  {toggle[product.id] ? <RemoveSvg /> :  <AddSvg /> }
                 </button>
               </div>
             ))}
