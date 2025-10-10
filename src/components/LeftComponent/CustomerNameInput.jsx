@@ -7,8 +7,6 @@ function CustomerNameInput({setCurrenOrder, currenOrder}) {
       ...prev,
       name: e.target.value,
     }));
-    console.log(currenOrder.name);
-    
   };
   return (
       <>
