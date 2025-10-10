@@ -37,8 +37,16 @@ function OrderCurrent({ products }) {
       }));
     }    
   };
-  console.log(currenOrder);
   
+  // handle place order
+  const handlePlanceOrder = () => {
+    if (!currenOrder.name) return alert("Please enter you name..!");
+    if(currenOrder.productsCustomer.length === 0) return alert("Plase choose at least one food!")
+    
+    
+    setCurrenOrder(initialOrder);
+    setToggle(true)
+  }
   return (
     <>
       <div className="bg-cardbg rounded-lg p-6 h-[calc(100vh_-_130px)]">
@@ -62,7 +70,7 @@ function OrderCurrent({ products }) {
           />
         </div>
         {/* Place Order Button */}
-        <button className="w-full bg-primary hover:bg-opacity-90 text-white font-medium py-3 rounded-full transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 cursor-pointer">
+        <button onClick={handlePlanceOrder} className="w-full bg-primary hover:bg-opacity-90 text-white font-medium py-3 rounded-full transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 cursor-pointer">
           Place Order {totalPrice}
         </button>
       </div>
