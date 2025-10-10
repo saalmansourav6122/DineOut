@@ -2,19 +2,19 @@
   {
     "id": "1",
     "name": "Leomonade",
-    "price": 150,
+    "price": 50,
     "slug": "leomonade"
   },
   {
     "id": "2",
     "name": "Chocolate Brownie",
-    "price": 150,
+    "price": 100,
     "slug": "brownie"
   },
   {
     "id": "3",
     "name": "Vanilla Shake",
-    "price": 180,
+    "price": 150,
     "slug": "shake"
   }
 ]

@@ -1,6 +1,6 @@
 import "./App.css";
 import Header from "./components/Header";
-import LeftComponent from "./components/LeftComponent";
+import OrderCurrent from "./components/LeftComponent/OrderCurrent";
 import products from "./data/products.json";
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         {/* Main Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 flex-grow">
           {/* left side component (Create Order Section ) */}
-          <LeftComponent products={products} />
+          <OrderCurrent products={products} />
           {/* left side component (Create Order Section ) end*/}
         </div>
         {/* Main Content End*/}
