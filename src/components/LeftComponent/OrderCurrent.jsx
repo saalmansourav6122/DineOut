@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CustomerNameInput from "./CustomerNameInput";
 import ChooseItem from "./ChooseItem";
-function OrderCurrent({ products }) {
+function OrderCurrent({ products, onOrder }) {
   // initial state of product
   const initialOrder = {
     name: "",
@@ -33,20 +33,29 @@ function OrderCurrent({ products }) {
     } else {
       setCurrenOrder((prev) => ({
         ...prev,
-        productsCustomer: prev.productsCustomer.filter((p) => p.id != product.id),
+        productsCustomer: prev.productsCustomer.filter(
+          (p) => p.id != product.id
+        ),
       }));
-    }    
+    }
   };
-  
+
   // handle place order
-  const handlePlanceOrder = () => {
+  const handlePlaceOrder = () => {
     if (!currenOrder.name) return alert("Please enter you name..!");
-    if(currenOrder.productsCustomer.length === 0) return alert("Plase choose at least one food!")
-    
-    
+    if (currenOrder.productsCustomer.length === 0)
+      return alert("Plase choose at least one food!");
+
+    onOrder({
+      ...currenOrder,
+      name: currenOrder.name.trim(),
+      orderDate: Date.now(),
+      status: "pending",
+    });
+
     setCurrenOrder(initialOrder);
-    setToggle(true)
-  }
+    setToggle(true);
+  };
   return (
     <>
       <div className="bg-cardbg rounded-lg p-6 h-[calc(100vh_-_130px)]">
@@ -70,7 +79,10 @@ function OrderCurrent({ products }) {
           />
         </div>
         {/* Place Order Button */}
-        <button onClick={handlePlanceOrder} className="w-full bg-primary hover:bg-opacity-90 text-white font-medium py-3 rounded-full transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 cursor-pointer">
+        <button
+          onClick={handlePlaceOrder}
+          className="w-full bg-primary hover:bg-opacity-90 text-white font-medium py-3 rounded-full transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 cursor-pointer"
+        >
           Place Order {totalPrice}
         </button>
       </div>
