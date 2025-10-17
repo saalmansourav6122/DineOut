@@ -3,12 +3,16 @@ import "./App.css";
 import Header from "./components/Header";
 import OrderCurrent from "./components/LeftComponent/OrderCurrent";
 import products from "./data/products.json";
+import OrderAndReport from "./components/RightComponent/OrderAndReport";
 function App() {
   const [order, setOrder] = useState([]);
 
   const handleOrder = (order) => {
-    console.log(order);
+    setOrder((prev) => [order, ...prev]);
   };
+
+  console.log(order);
+  
   return (
     <>
       <div className="container mx-auto px-4 h-screen flex flex-col">
@@ -21,6 +25,8 @@ function App() {
           {/* left side component (Create Order Section ) end*/}
         </div>
         {/* Main Content End*/}
+
+        <OrderAndReport />
       </div>
     </>
   );
