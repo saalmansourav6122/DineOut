@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import CustomerNameInput from "./CustomerNameInput";
 import ChooseItem from "./ChooseItem";
-function OrderCurrent({ products, onOrder }) {
+import { v4 as uuidv4 } from "uuid";
+function OrderCurrent({ order, products, onOrder }) {
   // initial state of product
   const initialOrder = {
     name: "",
@@ -49,8 +50,10 @@ function OrderCurrent({ products, onOrder }) {
     onOrder({
       ...currenOrder,
       name: currenOrder.name.trim(),
+      orderId: order.length + 1,
       orderDate: Date.now(),
       status: "pending",
+      amount: totalPrice,
     });
 
     setCurrenOrder(initialOrder);

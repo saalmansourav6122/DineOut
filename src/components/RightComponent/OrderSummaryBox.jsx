@@ -3,7 +3,6 @@ import React from "react";
 function OrderSummaryBox({ order }) {
   const orderNumber = order?.length || 0;
   const pending = order[0]?.status;
-  console.log(pending);
 
   return (
     <>
