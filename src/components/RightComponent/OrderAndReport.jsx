@@ -1,21 +1,20 @@
-import React from 'react'
-import OrderSummary from './OrderSummary'
-import OrderReports from './OrderReports'
+import React from "react";
+import OrderSummary from "./OrderSummary";
+import OrderReports from "./OrderReports";
 
-function OrderAndReport() {
+function OrderAndReport({ order }) {
   return (
-   
     <>
-      <div class="md:col-span-2 h-[calc(100vh_-_130px)]">
+      <div className="md:col-span-2 h-[calc(100vh_-_130px)]">
         <div>
-          <OrderSummary />
+          <OrderSummary order={order} />
         </div>
         <div>
-          <OrderReports />
+          <OrderReports order={order} />
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default OrderAndReport
+export default OrderAndReport;

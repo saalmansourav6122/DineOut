@@ -12,7 +12,7 @@ function App() {
   };
 
   console.log(order);
-  
+
   return (
     <>
       <div className="container mx-auto px-4 h-screen flex flex-col">
@@ -23,10 +23,12 @@ function App() {
           {/* left side component (Create Order Section ) */}
           <OrderCurrent products={products} onOrder={handleOrder} />
           {/* left side component (Create Order Section ) end*/}
+
+          {/* right side component (Order & Report Section ) */}
+          <OrderAndReport order={order} />
+          {/* right side component (Order & Report Section ) end*/}
         </div>
         {/* Main Content End*/}
-
-        <OrderAndReport />
       </div>
     </>
   );
