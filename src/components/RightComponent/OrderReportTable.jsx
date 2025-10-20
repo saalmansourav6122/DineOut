@@ -1,6 +1,14 @@
 import React from "react";
 
-function OrderReportTable({ order }) {
+function OrderReportTable({ order, setOrder }) {
+  console.log(order);
+  
+  const heandleDeleteOrder = (info) => {
+    setOrder((prev) => 
+      prev.filter((ord) => ord.orderId != info.orderId)
+    )
+  }
+  
   return (
     <>
       <div className="bg-cardbg rounded-lg p-4">
@@ -40,7 +48,7 @@ function OrderReportTable({ order }) {
                       </span>
                     </td>
                     <td className="py-3">
-                      <button className="bg-gray-800 hover:bg-red-600 text-xs px-3 py-1 rounded-full mr-1 transition-colors duration-300">
+                      <button onClick={()=>heandleDeleteOrder(info)} className="bg-gray-800 hover:bg-red-600 text-xs px-3 py-1 rounded-full mr-1 transition-colors duration-300">
                         Delete
                       </button>
                       <button className="bg-gray-800 hover:bg-green-600 text-xs px-3 py-1 rounded-full transition-colors duration-300">

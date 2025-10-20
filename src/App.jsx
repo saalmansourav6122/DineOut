@@ -26,7 +26,7 @@ function App() {
           {/* left side component (Create Order Section ) end*/}
 
           {/* right side component (Order & Report Section ) */}
-          <OrderAndReport order={order} />
+          <OrderAndReport order={order} setOrder={ setOrder} />
           {/* right side component (Order & Report Section ) end*/}
         </div>
         {/* Main Content End*/}

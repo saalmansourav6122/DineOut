@@ -2,7 +2,7 @@ import React from "react";
 import OrderSummary from "./OrderSummary";
 import OrderReports from "./OrderReports";
 
-function OrderAndReport({ order }) {
+function OrderAndReport({ order, setOrder }) {
   return (
     <>
       <div className="md:col-span-2 h-[calc(100vh_-_130px)]">
@@ -10,7 +10,7 @@ function OrderAndReport({ order }) {
           <OrderSummary order={order} />
         </div>
         <div>
-          <OrderReports order={order} />
+          <OrderReports order={order} setOrder={ setOrder} />
         </div>
       </div>
     </>

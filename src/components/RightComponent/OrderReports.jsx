@@ -2,11 +2,11 @@ import React from "react";
 import OrderReportHeader from "./OrderReportHeader";
 import OrderReportTable from "./OrderReportTable";
 
-function OrderReports({ order }) {
+function OrderReports({ order, setOrder }) {
   return (
     <>
       <OrderReportHeader />
-      <OrderReportTable order={order}/>
+      <OrderReportTable order={order} setOrder={ setOrder}/>
     </>
   );
 }
