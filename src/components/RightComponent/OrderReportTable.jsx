@@ -1,6 +1,6 @@
 import React from "react";
 
-function OrderReportTable({ order, setOrder }) {
+function OrderReportTable({ order, setOrder, filteredOrder }) {
   const heandleDeleteOrder = (info) => {
     setOrder((prev) => prev.filter((ord) => ord.orderId != info.orderId));
   };
@@ -29,7 +29,7 @@ function OrderReportTable({ order, setOrder }) {
               </tr>
             </thead>
             <tbody className="text-sm">
-              {order.map((info) => {
+              {filteredOrder.map((info) => {
                 return (
                   <tr key={info.orderId} className="border-t border-gray-700">
                     <td className="py-3">{info.orderId}</td>

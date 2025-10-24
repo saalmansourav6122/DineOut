@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import OrderReportTable from "./OrderReportTable";
 
-function OrderReportHeader() {
+function OrderReportHeader({ order,setOrder }) {
+  const [filter, setFilter] = useState("All")
+  const filteredOrder = order.filter((ord) => {
+    if (filter === "All") return ord;
+    if (filter === "Pending") return ord.status==="pending";
+    if (filter === "Delivered") return ord.status==="delivered";
+  })
+
+  console.log(filteredOrder);
+  
   return (
     <>
       <div className="flex justify-between">
@@ -22,13 +32,14 @@ function OrderReportHeader() {
             <path d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z" />
           </svg>
 
-          <select className="appearance-none bg-zinc-900 accent-orange-600 border-none outline-none rounded-sm">
-            <option>All</option>
-            <option>Pending</option>
-            <option>Delivered</option>
+          <select onChange={(e)=>setFilter(e.target.value)} className="appearance-none bg-zinc-900 accent-orange-600 border-none outline-none rounded-sm">
+            <option value="All">All</option>
+            <option  value="Pending">Pending</option>
+            <option  value="Delivered">Delivered</option>
           </select>
         </div>
       </div>
+      <OrderReportTable order={order} setOrder={setOrder} filteredOrder={ filteredOrder} />
     </>
   );
 }
