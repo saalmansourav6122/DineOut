@@ -2,8 +2,13 @@ import React from "react";
 
 function OrderSummaryBox({ order }) {
   const orderNumber = order?.length || 0;
+
   const pendingNumber = order.filter(
     (value) => value.status === "pending"
+  ).length;
+
+  const deliveredNumber = order.filter(
+    (value) => value.status === "delivered"
   ).length;
 
   return (
@@ -28,7 +33,7 @@ function OrderSummaryBox({ order }) {
       </div>
       {/* Delivered Orders */}
       <div className="bg-cardbg rounded-lg p-4 relative overflow-hidden">
-        <div className="text-5xl font-bold text-green-500 mb-2">1</div>
+        <div className="text-5xl font-bold text-green-500 mb-2">{ deliveredNumber}</div>
         <div className="bg-green-800 bg-opacity-50 text-green-200 text-xs font-medium px-3 py-1 rounded-full inline-block">
           Delivered
         </div>

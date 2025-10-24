@@ -7,6 +7,12 @@ function OrderReportTable({ order, setOrder }) {
       prev.filter((ord) => ord.orderId != info.orderId)
     )
   }
+
+  const headleDeliverOrder = (info) => {
+    setOrder((prev) => 
+    prev.map((ord)=> ord.orderId === info.orderId?{...ord,status: "delivered"}:ord)
+    )    
+  }
   
   return (
     <>
@@ -48,7 +54,7 @@ function OrderReportTable({ order, setOrder }) {
                       <button onClick={()=>heandleDeleteOrder(info)} className="bg-gray-800 hover:bg-red-600 text-xs px-3 py-1 rounded-full mr-1 transition-colors duration-300">
                         Delete
                       </button>
-                      <button className="bg-gray-800 hover:bg-green-600 text-xs px-3 py-1 rounded-full transition-colors duration-300">
+                      <button onClick={()=>headleDeliverOrder(info)} className="bg-gray-800 hover:bg-green-600 text-xs px-3 py-1 rounded-full transition-colors duration-300">
                         DELIVER
                       </button>
                     </td>
