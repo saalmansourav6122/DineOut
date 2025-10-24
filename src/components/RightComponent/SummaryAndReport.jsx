@@ -2,7 +2,7 @@ import React from "react";
 import OrderSummary from "./OrderSummary";
 import OrderReports from "./OrderReports";
 
-function OrderAndReport({ order, setOrder }) {
+function SummaryAndReport({ order, setOrder }) {
   return (
     <>
       <div className="md:col-span-2 h-[calc(100vh_-_130px)]">
@@ -17,4 +17,4 @@ function OrderAndReport({ order, setOrder }) {
   );
 }
 
-export default OrderAndReport;
+export default SummaryAndReport;

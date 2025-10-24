@@ -1,19 +1,18 @@
 import React from "react";
 
 function OrderReportTable({ order, setOrder }) {
-
   const heandleDeleteOrder = (info) => {
-    setOrder((prev) => 
-      prev.filter((ord) => ord.orderId != info.orderId)
-    )
-  }
+    setOrder((prev) => prev.filter((ord) => ord.orderId != info.orderId));
+  };
 
   const headleDeliverOrder = (info) => {
-    setOrder((prev) => 
-    prev.map((ord)=> ord.orderId === info.orderId?{...ord,status: "delivered"}:ord)
-    )    
-  }
-  
+    setOrder((prev) =>
+      prev.map((ord) =>
+        ord.orderId === info.orderId ? { ...ord, status: "delivered" } : ord
+      )
+    );
+  };
+
   return (
     <>
       <div className="bg-cardbg rounded-lg p-4">
@@ -51,12 +50,20 @@ function OrderReportTable({ order, setOrder }) {
                       </span>
                     </td>
                     <td className="py-3">
-                      <button onClick={()=>heandleDeleteOrder(info)} className="bg-gray-800 hover:bg-red-600 text-xs px-3 py-1 rounded-full mr-1 transition-colors duration-300">
+                      <button
+                        onClick={() => heandleDeleteOrder(info)}
+                        className="bg-gray-800 hover:bg-red-600 text-xs px-3 py-1 rounded-full mr-1 transition-colors duration-300"
+                      >
                         Delete
                       </button>
-                      <button onClick={()=>headleDeliverOrder(info)} className="bg-gray-800 hover:bg-green-600 text-xs px-3 py-1 rounded-full transition-colors duration-300">
-                        DELIVER
-                      </button>
+                      {info.status === "pending" && (
+                        <button
+                          onClick={() => headleDeliverOrder(info)}
+                          className="bg-gray-800 hover:bg-green-600 text-xs px-3 py-1 rounded-full transition-colors duration-300"
+                        >
+                          DELIVER
+                        </button>
+                      )}
                     </td>
                   </tr>
                 );

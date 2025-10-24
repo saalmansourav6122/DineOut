@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "./components/Header";
 import OrderCurrent from "./components/LeftComponent/OrderCurrent";
 import products from "./data/products.json";
-import OrderAndReport from "./components/RightComponent/OrderAndReport";
+import SummaryAndReport from "./components/RightComponent/SummaryAndReport";
 function App() {
   const [order, setOrder] = useState([]);
 
@@ -26,7 +26,7 @@ function App() {
           {/* left side component (Create Order Section ) end*/}
 
           {/* right side component (Order & Report Section ) */}
-          <OrderAndReport order={order} setOrder={ setOrder} />
+          <SummaryAndReport order={order} setOrder={ setOrder} />
           {/* right side component (Order & Report Section ) end*/}
         </div>
         {/* Main Content End*/}
